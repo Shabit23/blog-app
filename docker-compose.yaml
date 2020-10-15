@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+    app:
+      build:
+        context: .
+        dockerfile: ./Dockerfile.dev
+      image: node-app
+      container_name: node-app
+      restart: unless-stopped
+      environment:
+        - MONGO_USERNAME=$MONGO_USERNAME
+        - MONGO_PASSWORD=$MONGO_PASSWORD
+        - MONGO_HOSTNAME=db
+        - MONGO_DB=$MONGO_DB
+      volumes:
+        - /usr/app/node_modules
+        - .:/usr/app
+      ports:
+          - 3000:3000
+      
+    db:
+      image: mongo:4.1.8-xenial
+      container_name: db
+      restart: unless-stopped
+      environment:
+        - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+        - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+      volumes:
+        - ./dbdata:/data/db
+
+
+    
+    
