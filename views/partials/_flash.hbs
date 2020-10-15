@@ -1,0 +1,20 @@
+{{#ifEquals message.type 'danger'}}
+<div style="text-align: center;" class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Blog Deleted!</strong> You deleted your blog.
+</div>
+{{/ifEquals}}
+
+{{#ifEquals message.type 'success'}}
+<div style="text-align: center;" class="alerts">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Blog Updated!</strong> You updated your blog.
+</div>
+{{/ifEquals}}
+
+{{#ifEquals message.type 'created'}}
+<div style="text-align: center;" class="alerts">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Blog Created!</strong> You created a blog.
+</div>
+{{/ifEquals}}

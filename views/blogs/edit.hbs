@@ -1,0 +1,35 @@
+<h3>EDIT YOUR BLOG</h3>
+<div class="row">
+    <form action="/blogs/{{blog._id}}?_method=put" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value= "{{blog.title}}">
+                <label for="title">Title</label>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="input-field">
+            <select name="status" id="status">
+                {{#select blog.status}}
+                <option value="public" selected>Public</option>
+                <option value="private">Private</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field">
+            <h6>Create Your Own Blog!</h6>
+            <textarea name="body" id="body">{{blog.body}}</textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" value="Save" class="btn blue">
+        <a href="/dashboard" class="btn orange">Cancel</a>
+    </div>
+    </form>
+</div>
